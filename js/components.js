@@ -396,19 +396,20 @@ const InventoryItems = {
     
     .scratch-card-section {
       width: 452px;
+      height: 808px;
       flex-shrink: 0;
     }
-    
+
     .scratch-card-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 50px;
-      padding: 50px 20px;
+      padding: 0 1px 1px 1px;
       border-radius: 10px;
       border: 1px dashed var(--box-border);
       background-color: var(--background-color);
-      height: 808px;
+      height: 100%;
       justify-content: center;
     }
     
