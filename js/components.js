@@ -387,7 +387,6 @@ const InventoryItems = {
     
     .scratch-card-section {
       width: 452px;
-      min-width: 394px;
       flex-shrink: 0;
     }
     
