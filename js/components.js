@@ -460,22 +460,23 @@ const InventoryItems = {
       margin: 0;
     }
     
-    @media (max-width: 1520px) {
-      .inventory-section {
+    @media (max-width: 1600px) {
+      .inventory-container {
         padding: 0 20px;
       }
 
       .inventory-content {
         width: 100%;
-        max-width: 1480px;
+        max-width: 1280px;
       }
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       .inventory-content {
         flex-direction: column;
         gap: 30px;
         align-items: center;
+        width: 100%;
       }
 
       .inventory-main {
@@ -491,6 +492,7 @@ const InventoryItems = {
       .scratch-card-section {
         width: 100%;
         max-width: 452px;
+        height: auto;
       }
 
       .search-container {
@@ -500,8 +502,11 @@ const InventoryItems = {
 
     @media (max-width: 900px) {
       .items-grid {
-        grid-template-columns: repeat(2, 256px);
-        justify-content: center;
+        justify-content: space-around;
+      }
+
+      .item-card {
+        width: 240px;
       }
     }
 
