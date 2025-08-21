@@ -1,12 +1,14 @@
 {
-  "name": "code",
+  "name": "raspagreen-inventory",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "RaspaGreen Inventory Vue.js Application",
+  "main": "index.html",
   "scripts": {
-    "serve": "python3 -m http.server 8080",
-    "dev": "python3 -m http.server 8080"
+    "dev": "python3 -m http.server 8080",
+    "serve": "python3 -m http.server 8080"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^3.4.0"
+  },
   "devDependencies": {}
 }
