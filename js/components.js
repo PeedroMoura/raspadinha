@@ -126,7 +126,7 @@ const InventoryItems = {
             </div>
 
             <div class="items-grid">
-              <div v-for="item in filteredItems" :key="item.id" class="item-card" :class="{ featured: item.featured }">
+              <div v-for="item in filteredItems.slice(0, 9)" :key="item.id" class="item-card" :class="{ featured: item.featured }">
                 <div class="item-image-container">
                   <img v-if="item.image" :src="item.image" :alt="item.name" class="item-image">
                   <img v-if="item.secondaryImage" :src="item.secondaryImage" :alt="item.name" class="item-image-secondary">
