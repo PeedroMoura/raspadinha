@@ -494,7 +494,9 @@ const InventoryApp = {
   components: {
     HeaderComponent,
     WelcomeSection,
-    SummaryCards
+    SummaryCards,
+    InventoryItems,
+    FooterComponent
   },
   template: `
     <div class="inventory-app">
@@ -502,7 +504,9 @@ const InventoryApp = {
       <main class="main-content">
         <WelcomeSection />
         <SummaryCards />
+        <InventoryItems />
       </main>
+      <FooterComponent />
     </div>
   `,
   styles: `
@@ -511,9 +515,9 @@ const InventoryApp = {
       min-height: 100vh;
       background-color: var(--background-variant);
     }
-    
+
     .main-content {
-      padding: 60px 0;
+      padding: 60px 0 0 0;
       display: flex;
       flex-direction: column;
       gap: 60px;
