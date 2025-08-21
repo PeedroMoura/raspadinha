@@ -306,10 +306,10 @@ const InventoryItems = {
     }
     
     .items-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 256px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 20px;
-      justify-content: flex-start;
       width: 808px;
     }
 
