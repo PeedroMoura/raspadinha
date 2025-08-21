@@ -163,16 +163,25 @@ const InventoryItems = {
   styles: `
     <style scoped>
     .inventory-section {
-      padding: 0 100px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
       margin-bottom: 60px;
+    }
+
+    .inventory-container {
+      width: 1480px;
+      padding: 0 100px;
+      display: flex;
+      justify-content: center;
     }
 
     .inventory-content {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 50px;
-      width: 1480px;
-      margin: 0 auto;
+      width: 1280px;
     }
 
     .inventory-main {
