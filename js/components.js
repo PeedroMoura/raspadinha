@@ -297,10 +297,12 @@ const InventoryItems = {
     
     .items-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+      grid-template-columns: repeat(3, 256px);
       gap: 20px;
+      justify-content: flex-start;
+      width: 808px;
     }
-    
+
     .item-card {
       display: flex;
       flex-direction: column;
