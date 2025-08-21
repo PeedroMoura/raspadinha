@@ -166,17 +166,18 @@ const InventoryItems = {
       padding: 0 100px;
       margin-bottom: 60px;
     }
-    
+
     .inventory-content {
       display: flex;
+      justify-content: space-between;
       gap: 50px;
-      max-width: 1480px;
+      width: 1480px;
       margin: 0 auto;
     }
-    
+
     .inventory-main {
-      flex: 1;
-      max-width: 808px;
+      width: 808px;
+      flex-shrink: 0;
     }
     
     .inventory-header {
