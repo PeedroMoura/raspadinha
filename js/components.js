@@ -83,7 +83,7 @@ const InventoryItems = {
   },
   template: `
     <section class="inventory-section">
-      <div class="container">
+      <div class="inventory-container">
         <div class="inventory-content">
           <div class="inventory-main">
             <div class="inventory-header">
@@ -124,7 +124,7 @@ const InventoryItems = {
                 </div>
               </div>
             </div>
-            
+
             <div class="items-grid">
               <div v-for="item in filteredItems" :key="item.id" class="item-card" :class="{ featured: item.featured }">
                 <div class="item-image-container">
@@ -141,7 +141,7 @@ const InventoryItems = {
               </div>
             </div>
           </div>
-          
+
           <div class="scratch-card-section">
             <div class="scratch-card-container">
               <div class="scratch-card-illustration">
