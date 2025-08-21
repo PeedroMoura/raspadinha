@@ -1,0 +1,147 @@
+:root {
+  /* Colors from Figma design */
+  --primary-color: #26E702;
+  --background-color: #181818;
+  --background-variant: #0b0d0c;
+  --box-color: #262626;
+  --box-border: #383838;
+  --text-color: #fafafa;
+  --text-secondary: #858585;
+  --red-color: #ff3b33;
+  
+  /* Spacing */
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-14: 14px;
+  --spacing-50: 50px;
+  
+  /* Font family */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-variant);
+  color: var(--text-color);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* Common utility classes */
+.primary-text {
+  color: var(--primary-color);
+}
+
+.secondary-text {
+  color: var(--text-secondary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.btn-primary:hover {
+  background-color: #1fb902;
+}
+
+.btn-secondary {
+  background-color: var(--box-color);
+  color: var(--text-color);
+}
+
+.btn-secondary:hover {
+  background-color: #2f2f2f;
+}
+
+/* Container styles */
+.container {
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Grid utilities */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-responsive {
+  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+}
+
+/* Flexbox utilities */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+.gap-30 {
+  gap: 30px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .grid-responsive {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 8px;
+  }
+}

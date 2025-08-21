@@ -1,0 +1,257 @@
+/* Additional responsive utilities and mobile optimizations */
+
+/* Mobile-first breakpoints */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 8px;
+  }
+  
+  /* Header optimizations */
+  .header-content {
+    gap: 15px;
+  }
+  
+  .header-nav {
+    display: none; /* Hide nav on very small screens */
+  }
+  
+  .balance-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  /* Welcome section mobile */
+  .welcome-content {
+    padding: 15px;
+  }
+  
+  .welcome-header {
+    gap: 15px;
+  }
+  
+  .welcome-text h1 {
+    font-size: 20px;
+  }
+  
+  /* Summary cards mobile */
+  .summary-amount {
+    font-size: 20px;
+  }
+  
+  .summary-title {
+    font-size: 14px;
+  }
+  
+  /* Inventory mobile */
+  .inventory-section {
+    padding: 0 8px;
+  }
+  
+  .tabs-container {
+    gap: 15px;
+  }
+  
+  .tab {
+    font-size: 14px;
+  }
+  
+  /* Items grid mobile */
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .item-card {
+    width: 100%;
+    max-width: none;
+  }
+  
+  /* Scratch card mobile */
+  .scratch-card-text {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  /* Footer mobile */
+  .footer-content {
+    gap: 30px;
+  }
+  
+  .footer-info {
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 481px) and (max-width: 768px) {
+  .header-nav {
+    gap: 15px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+  }
+  
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .search-container {
+    width: 250px;
+  }
+}
+
+/* Large tablet/small desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .items-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .inventory-content {
+    gap: 30px;
+  }
+  
+  .scratch-card-section {
+    width: 350px;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  .items-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .items-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --box-border: #ffffff;
+    --text-secondary: #cccccc;
+  }
+}
+
+/* Print styles */
+@media print {
+  .app-header,
+  .footer-component,
+  .btn,
+  .search-container,
+  .pagination-controls {
+    display: none !important;
+  }
+  
+  .inventory-app {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .item-card {
+    border: 1px solid #000 !important;
+    background: white !important;
+  }
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+.nav-link:focus,
+.search-input:focus,
+.pagination-btn:focus,
+.page-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Hover effects */
+@media (hover: hover) {
+  .item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 231, 2, 0.1);
+    transition: all 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--text-secondary);
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+::-moz-selection {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}

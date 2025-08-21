@@ -1,0 +1,812 @@
+/* Complete Figma Layout CSS */
+
+/* Base styles */
+.inventory-app {
+  min-height: 100vh;
+  background-color: var(--background-variant);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.app-header {
+  background-color: var(--background-variant);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--box-border);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  height: 38px;
+  width: auto;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-color);
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(38, 231, 2, 0.2) 0%, rgba(15, 96, 0, 0.2) 100%);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.balance-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.balance-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background-color: var(--box-color);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 60px 0 0 0;
+}
+
+/* Welcome Section */
+.welcome-section {
+  background-color: var(--background-color);
+  padding: 50px 0;
+  border-radius: 14px;
+  margin: 0 16px;
+}
+
+.welcome-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 50px;
+  border-radius: 22px;
+  border: 1px solid var(--box-border);
+  background: linear-gradient(180deg, rgba(38, 38, 38, 0.4) 0%, rgba(38, 231, 2, 0.4) 298.42%);
+}
+
+.welcome-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  flex-shrink: 0;
+}
+
+.welcome-text h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 42px;
+  width: auto;
+  max-width: 100%;
+}
+
+.promo-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.promo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.promo-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.bonus-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bonus-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bonus-amount {
+  color: var(--text-color);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.bonus-illustration {
+  width: 122px;
+  height: 122px;
+  flex-shrink: 0;
+}
+
+/* Summary Section */
+.summary-section {
+  padding: 20px 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.summary-card {
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--box-border);
+  background-color: var(--background-color);
+}
+
+.summary-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary-title {
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.summary-amount {
+  color: var(--text-color);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.summary-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--box-color);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Inventory Section - Main Figma Layout */
+.inventory-section {
+  padding: 0 100px;
+  margin-bottom: 60px;
+}
+
+.inventory-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  max-width: 1480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.inventory-main {
+  width: 808px;
+  flex-shrink: 0;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 808px;
+}
+
+.tabs-container {
+  display: flex;
+  gap: 30px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom-color: var(--primary-color);
+}
+
+.notification-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background-color: var(--red-color);
+  color: var(--text-color);
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.controls-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.page-btn {
+  width: 38px;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn.active {
+  background-color: rgba(38, 231, 2, 0.1);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 10px;
+  border: 1px solid var(--box-border);
+  border-radius: 8px;
+  width: 452px;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 12px;
+  flex: 1;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Items Grid - Exact Figma 3x3 Layout */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 256px);
+  grid-template-rows: repeat(3, 256px);
+  gap: 20px;
+  width: 808px;
+  height: 808px;
+}
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  width: 256px;
+  height: 256px;
+  padding: 24px 14px 14px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--box-color);
+  background: linear-gradient(180deg, rgba(38, 38, 38, 0.04) 72.74%, rgba(74, 255, 25, 0.04) 100%);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-card.featured {
+  border-color: var(--box-border);
+  background: linear-gradient(180deg, rgba(24, 24, 24, 0.4) 55.58%, rgba(9, 22, 7, 0.28) 84.42%, rgba(38, 231, 2, 0) 123.71%);
+}
+
+.item-image-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.item-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.item-image-secondary {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.item-name {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-price {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.item-quantity {
+  background-color: rgba(38, 231, 2, 0.1);
+  color: var(--primary-color);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 38px;
+  text-align: center;
+}
+
+/* Scratch Card Section */
+.scratch-card-section {
+  width: 452px;
+  height: 808px;
+  flex-shrink: 0;
+}
+
+.scratch-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 0 1px 1px 1px;
+  border-radius: 10px;
+  border: 1px dashed var(--box-border);
+  background-color: var(--background-color);
+  height: 100%;
+  justify-content: center;
+}
+
+.scratch-card-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.illustration-container {
+  position: relative;
+  width: 210px;
+  height: 214px;
+}
+
+.scratch-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 79px;
+  height: 88px;
+}
+
+.scratch-front {
+  position: absolute;
+  top: 54px;
+  left: 56px;
+  width: 153px;
+  height: 160px;
+}
+
+.scratch-overlay {
+  position: absolute;
+  top: 54px;
+  left: 72px;
+  width: 137px;
+  height: 140px;
+}
+
+.scratch-card-text {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 30px;
+  max-width: 385px;
+  margin: 0;
+}
+
+/* Footer */
+.app-footer {
+  background-color: var(--background-variant);
+  padding: 60px 0;
+  margin-top: 60px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1252px;
+  margin: 0 auto;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 482px;
+}
+
+.footer-logo {
+  width: 156px;
+  height: auto;
+}
+
+.footer-copyright {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.footer-disclaimer {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-heading {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1600px) {
+  .inventory-section {
+    padding: 0 20px;
+  }
+  
+  .inventory-wrapper {
+    width: 100%;
+    max-width: 1480px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .inventory-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .inventory-main {
+    width: 100%;
+    max-width: 808px;
+  }
+  
+  .inventory-header {
+    width: 100%;
+    max-width: 808px;
+  }
+  
+  .items-grid {
+    width: 100%;
+    max-width: 808px;
+    justify-content: center;
+  }
+  
+  .scratch-card-section {
+    width: 100%;
+    max-width: 452px;
+    height: auto;
+  }
+  
+  .search-container {
+    width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .items-grid {
+    grid-template-columns: repeat(2, 256px);
+    grid-template-rows: auto;
+    height: auto;
+    justify-content: center;
+  }
+  
+  .item-card {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .header-left {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .header-nav {
+    gap: 15px;
+  }
+  
+  .balance-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .welcome-content {
+    padding: 20px 20px;
+  }
+  
+  .welcome-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .promo-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .bonus-illustration {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .summary-card {
+    padding: 15px;
+  }
+  
+  .summary-amount {
+    font-size: 24px;
+  }
+  
+  .inventory-header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  
+  .controls-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  .pagination-controls {
+    justify-content: center;
+  }
+  
+  .scratch-card-container {
+    height: auto;
+    padding: 30px 15px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .footer-links {
+    gap: 40px;
+  }
+  
+  .footer-info {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .items-grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .item-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
