@@ -450,58 +450,88 @@ const InventoryItems = {
       margin: 0;
     }
     
-    @media (max-width: 1200px) {
+    @media (max-width: 1520px) {
       .inventory-section {
         padding: 0 20px;
       }
-      
+
+      .inventory-content {
+        width: 100%;
+        max-width: 1480px;
+      }
+    }
+
+    @media (max-width: 1200px) {
       .inventory-content {
         flex-direction: column;
         gap: 30px;
+        align-items: center;
       }
-      
+
+      .inventory-main {
+        width: 100%;
+        max-width: 808px;
+      }
+
+      .items-grid {
+        width: 100%;
+        justify-content: center;
+      }
+
       .scratch-card-section {
         width: 100%;
-        min-width: auto;
+        max-width: 452px;
       }
-      
+
       .search-container {
         width: 300px;
       }
     }
-    
+
+    @media (max-width: 900px) {
+      .items-grid {
+        grid-template-columns: repeat(2, 256px);
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 768px) {
       .inventory-header {
         flex-direction: column;
         gap: 20px;
         align-items: stretch;
       }
-      
+
       .controls-container {
         flex-direction: column;
         gap: 15px;
       }
-      
+
       .search-container {
         width: 100%;
       }
-      
+
       .pagination-controls {
         justify-content: center;
       }
-      
-      .items-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 15px;
-      }
-      
-      .item-card {
-        width: 100%;
-      }
-      
+
       .scratch-card-container {
         height: auto;
         padding: 30px 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .items-grid {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .item-card {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
       }
     }
     </style>
