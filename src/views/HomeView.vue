@@ -1,6 +1,5 @@
 <template>
   <div class="home-view">
-    <WelcomeSection />
     <SummarySection :items="summaryItems" />
     
     <!-- Quick Actions Section -->
@@ -60,7 +59,6 @@
 import { ref, computed, onMounted } from 'vue'
 import { useDashboardStore } from '@/stores/dashboard'
 import { useFormatter } from '@/composables/useFormatter'
-import WelcomeSection from '@/components/WelcomeSection.vue'
 import SummarySection from '@/components/SummarySection.vue'
 
 const dashboardStore = useDashboardStore()
