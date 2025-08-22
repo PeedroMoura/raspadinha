@@ -6,6 +6,9 @@
   background-color: var(--background-variant);
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 /* Header Styles */
@@ -119,8 +122,17 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
   gap: 60px;
-  padding: 60px 0 0 0;
+  padding: 60px 20px 0 20px;
+  max-width: 1520px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Welcome Section */
@@ -128,13 +140,13 @@
   background-color: var(--background-color);
   padding: 50px 0;
   border-radius: 14px;
-  margin: 0 16px;
+  width: 100%;
 }
 
 .welcome-content {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 20px 50px;
+  padding: 30px 50px;
   border-radius: 22px;
   border: 1px solid var(--box-border);
   background: linear-gradient(180deg, rgba(38, 38, 38, 0.4) 0%, rgba(38, 231, 2, 0.4) 298.42%);
@@ -221,10 +233,11 @@
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .summary-card {
@@ -273,16 +286,17 @@
 
 /* Inventory Section - Main Figma Layout */
 .inventory-section {
-  padding: 0 100px;
+  padding: 0;
   margin-bottom: 60px;
+  width: 100%;
 }
 
 .inventory-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   gap: 50px;
-  max-width: 1480px;
+  max-width: 1310px;
   margin: 0 auto;
   width: 100%;
 }
@@ -297,7 +311,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  width: 808px;
+  width: 1263px;
+  position: relative;
 }
 
 .tabs-container {
@@ -394,6 +409,7 @@
   border: 1px solid var(--box-border);
   border-radius: 8px;
   width: 452px;
+  margin-left: 4px;
 }
 
 .search-input {
@@ -417,6 +433,8 @@
   gap: 20px;
   width: 808px;
   height: 808px;
+  justify-content: start;
+  align-content: start;
 }
 
 .item-card {
@@ -512,12 +530,13 @@
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  padding: 0 1px 1px 1px;
+  padding: 0 1px 2px 1px;
   border-radius: 10px;
   border: 1px dashed var(--box-border);
   background-color: var(--background-color);
   height: 100%;
   justify-content: center;
+  margin-top: 54px;
 }
 
 .scratch-card-illustration {
@@ -742,7 +761,7 @@
   }
   
   .summary-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
   
@@ -793,18 +812,23 @@
 }
 
 @media (max-width: 600px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
   .items-grid {
     grid-template-columns: 1fr;
     justify-content: center;
     width: 100%;
   }
-  
+
   .item-card {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
   }
-  
+
   .footer-links {
     flex-direction: column;
     gap: 30px;

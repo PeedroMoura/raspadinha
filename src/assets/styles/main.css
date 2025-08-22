@@ -36,6 +36,18 @@ body {
 
 #app {
   min-height: 100vh;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Main content container for 1920x1080 optimization */
+.content-container {
+  width: 100%;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Common utility classes */
