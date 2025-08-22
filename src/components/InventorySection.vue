@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 interface Item {
   id: number
   name: string
@@ -7,6 +9,17 @@ interface Item {
   image: string
   secondaryImage?: string
   featured?: boolean
+}
+
+interface BonusItem {
+  id: number
+  title: string
+  description: string
+  value: string
+  type: 'daily' | 'weekly' | 'monthly' | 'referral'
+  status: 'available' | 'claimed' | 'locked'
+  expiresAt?: string
+  icon: string
 }
 
 const props = defineProps<{
@@ -20,6 +33,96 @@ const emit = defineEmits<{
   'update:currentPage': [value: number]
 }>()
 
+// Tab state
+const activeTab = ref<'items' | 'bonuses'>('items')
+
+// Mock bonus data matching the design
+const bonusItems: BonusItem[] = [
+  {
+    id: 1,
+    title: 'Recompensas\n5-10 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$10,00',
+    value: 'Verificar identidade',
+    type: 'daily',
+    status: 'available',
+    icon: '🎁'
+  },
+  {
+    id: 2,
+    title: 'Recompensas\n5-10 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$10,00',
+    value: 'Faça seu primeiro depósito',
+    type: 'weekly',
+    status: 'available',
+    icon: '🎁'
+  },
+  {
+    id: 3,
+    title: 'Recompensas\n50-100 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$100,00',
+    value: 'Volume mensal de R$5.000,00',
+    type: 'monthly',
+    status: 'available',
+    icon: '🎁'
+  },
+  {
+    id: 4,
+    title: 'Recompensado\n20 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$20,00',
+    value: 'Indique o ganhe',
+    type: 'referral',
+    status: 'claimed',
+    icon: '🎁'
+  },
+  {
+    id: 5,
+    title: 'Recompensas\n5-10 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$10,00',
+    value: 'Faça seu primeiro depósito',
+    type: 'daily',
+    status: 'available',
+    icon: '🎁'
+  },
+  {
+    id: 6,
+    title: 'Recompensas\n5-10 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$10,00',
+    value: 'Faça seu primeiro depósito',
+    type: 'weekly',
+    status: 'available',
+    icon: '🎁'
+  },
+  {
+    id: 7,
+    title: 'Recompensas\n5-10 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$10,00',
+    value: 'Faça seu primeiro depósito',
+    type: 'monthly',
+    status: 'available',
+    icon: '🎁'
+  },
+  {
+    id: 8,
+    title: 'Recompensas\n5-10 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$10,00',
+    value: 'Faça seu primeiro depósito',
+    type: 'referral',
+    status: 'available',
+    icon: '🎁'
+  },
+  {
+    id: 9,
+    title: 'Recompensas\n5-10 Reais',
+    description: 'Complete a tarefa para desbloquear uma raspadinha misteriosa no valor de até R$10,00',
+    value: 'Faça seu primeiro depósito',
+    type: 'daily',
+    status: 'available',
+    icon: '🎁'
+  }
+]
+
+const availableBonusCount = bonusItems.filter(bonus => bonus.status === 'available').length
+
 const updateSearch = (event: Event) => {
   const target = event.target as HTMLInputElement
   emit('update:searchQuery', target.value)
@@ -27,6 +130,19 @@ const updateSearch = (event: Event) => {
 
 const updatePage = (page: number) => {
   emit('update:currentPage', page)
+}
+
+const switchTab = (tab: 'items' | 'bonuses') => {
+  activeTab.value = tab
+}
+
+const claimBonus = (bonusId: number) => {
+  const bonus = bonusItems.find(b => b.id === bonusId)
+  if (bonus && bonus.status === 'available') {
+    bonus.status = 'claimed'
+    // Here you would typically call an API to claim the bonus
+    console.log(`Claimed bonus: ${bonus.title}`)
+  }
 }
 </script>
 
@@ -38,12 +154,12 @@ const updatePage = (page: number) => {
         <div class="inventory-main">
           <div class="inventory-header">
             <div class="tabs-container">
-              <div class="tab active">
+              <div class="tab" :class="{ active: activeTab === 'items' }" @click="switchTab('items')">
                 <span>Meus itens</span>
               </div>
-              <div class="tab">
+              <div class="tab" :class="{ active: activeTab === 'bonuses' }" @click="switchTab('bonuses')">
                 <span>Bônus regulares</span>
-                <div class="notification-badge">1</div>
+                <div v-if="availableBonusCount > 0" class="notification-badge">{{ availableBonusCount }}</div>
               </div>
             </div>
             <div class="controls-container">
@@ -87,8 +203,8 @@ const updatePage = (page: number) => {
             </div>
           </div>
           
-          <!-- Items Grid - Exact 3x3 layout -->
-          <div class="items-grid">
+          <!-- Items Grid - Shows when "Meus itens" tab is active -->
+          <div v-if="activeTab === 'items'" class="items-grid">
             <div v-for="item in items" :key="item.id" class="item-card" :class="{ featured: item.featured }">
               <div class="item-image-container">
                 <img v-if="item.image" :src="item.image" :alt="item.name" class="item-image">
@@ -99,6 +215,36 @@ const updatePage = (page: number) => {
                 <div class="item-details">
                   <div class="item-price">{{ item.price }}</div>
                   <div class="item-quantity">{{ item.quantity }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bonus Grid - Shows when "Bônus regulares" tab is active -->
+          <div v-if="activeTab === 'bonuses'" class="bonus-grid">
+            <div v-for="bonus in bonusItems" :key="bonus.id" class="bonus-reward-card" :class="bonus.status">
+              <div class="reward-badge">
+                <div class="reward-icon">🎁</div>
+              </div>
+              <div class="reward-content">
+                <h3 class="reward-title" v-html="bonus.title.replace('\n', '<br>')"></h3>
+                <p class="reward-description">{{ bonus.description }}</p>
+                <div class="reward-task">{{ bonus.value }}</div>
+              </div>
+              <div class="reward-action">
+                <button
+                  v-if="bonus.status === 'available'"
+                  class="complete-btn"
+                  @click="claimBonus(bonus.id)"
+                >
+                  Completar
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                    <path d="M1 4L3 6L7 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <div v-else-if="bonus.status === 'claimed'" class="completed-status">
+                  <span class="completed-text">Concluído!</span>
+                  <div class="completed-icon">✓</div>
                 </div>
               </div>
             </div>
@@ -357,6 +503,144 @@ const updatePage = (page: number) => {
   text-align: center;
 }
 
+/* Bonus Grid Styles - 3x3 grid like items */
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 256px);
+  grid-template-rows: repeat(3, 256px);
+  gap: 20px;
+  width: 808px;
+  height: 808px;
+}
+
+.bonus-reward-card {
+  display: flex;
+  flex-direction: column;
+  width: 256px;
+  height: 256px;
+  padding: 24px 14px 14px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--box-color);
+  background: linear-gradient(180deg, rgba(38, 38, 38, 0.04) 72.74%, rgba(74, 255, 25, 0.04) 100%);
+  position: relative;
+  justify-content: space-between;
+}
+
+.bonus-reward-card.claimed {
+  background: linear-gradient(180deg, rgba(38, 231, 2, 0.08) 0%, rgba(38, 231, 2, 0.04) 100%);
+  border-color: var(--primary-color);
+}
+
+.reward-badge {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  background-color: var(--primary-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.reward-icon {
+  font-size: 16px;
+  filter: grayscale(1) brightness(0) invert(1);
+}
+
+.reward-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.reward-title {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.reward-description {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.reward-task {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.reward-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.complete-btn {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--box-border);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.complete-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.completed-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.completed-text {
+  color: var(--background-color);
+}
+
+.completed-icon {
+  width: 16px;
+  height: 16px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
 .scratch-card-section {
   width: 452px;
   height: 808px;
@@ -459,13 +743,15 @@ const updatePage = (page: number) => {
 }
 
 @media (max-width: 900px) {
-  .items-grid {
+  .items-grid,
+  .bonus-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     justify-content: space-around;
   }
 
-  .item-card {
+  .item-card,
+  .bonus-reward-card {
     width: 100%;
     max-width: 240px;
   }
@@ -498,13 +784,15 @@ const updatePage = (page: number) => {
 }
 
 @media (max-width: 600px) {
-  .items-grid {
+  .items-grid,
+  .bonus-grid {
     grid-template-columns: 1fr;
     justify-content: center;
     width: 100%;
   }
 
-  .item-card {
+  .item-card,
+  .bonus-reward-card {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
